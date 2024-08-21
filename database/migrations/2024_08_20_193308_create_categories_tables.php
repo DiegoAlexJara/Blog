@@ -18,8 +18,8 @@ return new class extends Migration
             $table->longText('content');
 
             $table->longText('category'); 
-            
             $table->timestamps();
+            $table->timestamp('published_at')->nullable();
         });
     }
 

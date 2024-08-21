@@ -15,19 +15,19 @@ Route::get('/post/{post}/{category?}', [PostController::class, "show"]);
 
 Route::get('prueba', function(){
     /*
-    Crear Nuevo Post
+    // Crear Nuevo Post
     $post = new post();
-    $post->title = 'Titulo De Prueba 2';
-    $post->content = 'Contenido DE Prueba 2';
-    $post->category = 'Categoria De Prueba 2';
+    $post->title = 'Titulo De Prueba 1';
+    $post->content = 'Contenido DE Prueba 1';
+    $post->category = 'Categoria De Prueba 1';
     $post->save();
-    */
+    // */
 
     /*
-    Actualizar Un Post
+    // Actualizar Un Post
     $post = post::find(1); 
-    $post->content = 'Cambio De Contenido 1';
-    $post->save(); 
+    $post->title = 'Nuevo Titulo 1';
+    $post->save();
     return $post;
     */
     /*
@@ -38,6 +38,6 @@ Route::get('prueba', function(){
     
     // $post = post::where('title','Titulo De Prueba 2')->first(); //Unico Registro
     // $post = post::where('id','>=','1')->get(); //Multiples Registros
-    $post = post::select('id')->orderBy('id', 'desc')->get();
-    return $post;
+    // $post = post::select('id')->orderBy('id', 'desc')->get();
+    // return $post;
 });
