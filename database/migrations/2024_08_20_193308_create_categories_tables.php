@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('content');
 
-            $table->string('categorias'); 
+            $table->longText('category'); 
             
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories_tables');
+        Schema::dropIfExists('posts');
     }
 };
