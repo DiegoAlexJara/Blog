@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center; /* Centra el nav-bar horizontalmente */
+}
+
+.nav-bar {
+    margin: 0 auto;
+    width: 80%; /* Ancho del nav-bar */
+}
+body{
+    text-align: center;
+}

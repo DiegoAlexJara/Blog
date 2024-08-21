@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Aqui se mostraran los POSTS</h1>
-</body>
-</html>
+@extends('components.app-layout')
+@section('title')
+    POSTS
+@endsection
+@section('content')
+    <h1>POST</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Category</th>
+                <th scope="col">Content</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($posts as $buscar)
+                <tr>
+
+                    <th>{{ $buscar->id }}</th>
+
+                    <th>{{ $buscar->title }}</th>
+                    <th>{{ $buscar->category }}</th>
+                    <th>{{ $buscar->content }}</th>
+                    <th> 
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                            Acciones
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/post/{{ $buscar->id }}/edit">Modificar</a></li>
+                            <li><a class="dropdown-item" href="/post/{{ $buscar->id }}/delete">Eliminar</a></li>
+                        </ul>
+                    </th>
+                </tr>
+            @endforeach
+
+        </tbody>
+    </table>
+@endsection

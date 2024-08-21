@@ -11,33 +11,43 @@ Route::get('/post',[PostController::class, "index"]);
 
 Route::get('/post/create', [PostController::class, "create"]);
 
-Route::get('/post/{post}/{category?}', [PostController::class, "show"]);
+Route::post('/post', [PostController::class, 'store']);
 
-Route::get('prueba', function(){
-    /*
-    // Crear Nuevo Post
-    $post = new post();
-    $post->title = 'Titulo De Prueba 1';
-    $post->content = 'Contenido DE Prueba 1';
-    $post->category = 'Categoria De Prueba 1';
-    $post->save();
-    // */
+Route::get('/post/{post}', [PostController::class, "show"]);
 
-    /*
-    // Actualizar Un Post
-    $post = post::find(1); 
-    $post->title = 'Nuevo Titulo 1';
-    $post->save();
-    return $post;
-    */
-    /*
-    Eliminar Un Post
-    $post = post::find(1);
-    $post->delete();
-    */
+Route::get('post/{post}/edit', [PostController::class, "edit"]);
+
+Route::put('post/{post}', [PostController::class, 'update']);
+
+Route::get('post/{post}/delete', [PostController::class, "delete"]);
+
+
+
+// Route::get('prueba', function(){
+//     /*
+//     // Crear Nuevo Post
+//     $post = new post();
+//     $post->title = 'Titulo De Prueba 1';
+//     $post->content = 'Contenido DE Prueba 1';
+//     $post->category = 'Categoria De Prueba 1';
+//     $post->save();
+//     // */
+
+//     /*
+//     // Actualizar Un Post
+//     $post = post::find(1); 
+//     $post->title = 'Nuevo Titulo 1';
+//     $post->save();
+//     return $post;
+//     */
+//     /*
+//     Eliminar Un Post
+//     $post = post::find(1);
+//     $post->delete();
+//     */
     
-    // $post = post::where('title','Titulo De Prueba 2')->first(); //Unico Registro
-    // $post = post::where('id','>=','1')->get(); //Multiples Registros
-    // $post = post::select('id')->orderBy('id', 'desc')->get();
-    // return $post;
-});
+//     // $post = post::where('title','Titulo De Prueba 2')->first(); //Unico Registro
+//     // $post = post::where('id','>=','1')->get(); //Multiples Registros
+//     // $post = post::select('id')->orderBy('id', 'desc')->get();
+//     // return $post;
+// });
