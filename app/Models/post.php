@@ -11,6 +11,13 @@ class post extends Model
     use HasFactory;
     protected $table = 'posts';
 
+    protected $fillable = [
+        'title',
+        'content',
+        'category',
+    ];
+
+
     protected function title(): Attribute
     {
         return Attribute::make(

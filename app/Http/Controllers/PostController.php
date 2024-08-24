@@ -11,64 +11,42 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-
         $posts = post::orderBy('id', 'desc')->paginate(20);
-        
         return view("post.index", compact('posts'));
-
     }
 
     public function create()
     {
-
-        
         return view('post.create');
-    
     }
 
-    public function show($post)
+    public function show(post $post)
     {
-
-        $post = post::find($post);
         $post->delete();
         return redirect(route('posts.index'));
     }
 
     public function store(Request $request)
     {
+        post::create($request->all());
 
-        $post = new post();
-
-        $post->title = $request->title;
-        $post->category = $request->category;
-        $post->content = $request->content;
-
-        $post->save();
-
-        return redirect('/post');
+        return redirect()->route('posts.index');
     }
 
-    public function edit($post)
+    public function edit(post $post)
     {
-        $post = post::find($post);
         return view('post.edit', compact('post'));
     }
-    public function update($post, Request $request)
+    
+    public function update(post $post, Request $request)
     {
-        $post = post::find($post);
-        $post->title = $request->title;
-        $post->category = $request->category;
-        $post->content = $request->content;
-        $post->save();
-        return redirect(route('posts.index'));
-            
+        $post->update   ($request->all());
+        return redirect()->route('posts.index');
     }
 
-    public function destroy($post)
+    public function destroy(post $post)
     {
-
-        $post = post::find($post);
         $post->delete();
-        return redirect(route('posts.index'));
+        return redirect()->route('posts.index');
     }
 }

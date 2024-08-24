@@ -7,6 +7,5 @@ use App\Models\post;
 
 Route::get('/', [HomeController::class, "index"]);
 
-Route::resource('articulos', PostController::class)
-    ->names('posts');
+Route::resource('posts', PostController::class);
 
