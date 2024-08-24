@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\post;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = new post();
-        $posts = $posts->all();
+
+        $posts = post::orderBy('id', 'desc')->paginate(20);
+        // Paginator::useBootstrap(); 
         return view("post.index", compact('posts'));
+        // return dd($posts);
+        // return $posts->count();
+        // return $posts->lastPage(); 
     }
 
     public function create()

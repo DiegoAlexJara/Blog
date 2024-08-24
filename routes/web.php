@@ -13,7 +13,7 @@ Route::get('/post/create', [PostController::class, "create"]);
 
 Route::post('/post', [PostController::class, 'store']);
 
-Route::get('/post/{post}', [PostController::class, "show"]);
+Route::get('/post/{post}    ', [PostController::class, "show"]);
 
 Route::get('post/{post}/edit', [PostController::class, "edit"]);
 

@@ -7,7 +7,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+               <th scope="col">#</th>
                 <th scope="col">Titulo</th>
                 <th scope="col">Category</th>
                 <th scope="col">Content</th>
@@ -38,4 +38,5 @@
 
         </tbody>
     </table>
+    {{ $posts->links() }}
 @endsection
