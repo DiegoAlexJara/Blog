@@ -13,25 +13,25 @@ class PostController extends Controller
     {
 
         $posts = post::orderBy('id', 'desc')->paginate(20);
-        // Paginator::useBootstrap(); 
+        
         return view("post.index", compact('posts'));
-        // return dd($posts);
-        // return $posts->count();
-        // return $posts->lastPage(); 
+
     }
 
     public function create()
     {
-        return view("post.create");
+
+        
+        return view('post.create');
+    
     }
 
     public function show($post)
     {
 
         $post = post::find($post);
-
-
-        return view("post.show", compact('post'));
+        $post->delete();
+        return redirect(route('posts.index'));
     }
 
     public function store(Request $request)
@@ -55,19 +55,20 @@ class PostController extends Controller
     }
     public function update($post, Request $request)
     {
-        $post = post::find(1);
+        $post = post::find($post);
         $post->title = $request->title;
         $post->category = $request->category;
         $post->content = $request->content;
         $post->save();
-        return redirect('post');
+        return redirect(route('posts.index'));
+            
     }
 
-    public function delete($post)
+    public function destroy($post)
     {
 
         $post = post::find($post);
         $post->delete();
-        return redirect('/post');
+        return redirect(route('posts.index'));
     }
 }

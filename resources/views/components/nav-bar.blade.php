@@ -6,10 +6,10 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/post">POSTs</a>
+                        <a class="nav-link" href="{{route('posts.index')}}">POSTs</a>
                     </li>
                     <li>
-                      <a class="nav-link" href="/post/create">Crear Post</a>
+                      <a class="nav-link" href={{ route('posts.create') }}>Crear Post</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <h1>Crear Post</h1>
-    <form action="/post" method="post">
+    <form action="{{ route('posts.create') }}" method="post">
         
         @csrf
 

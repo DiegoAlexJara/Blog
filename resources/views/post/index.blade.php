@@ -29,8 +29,8 @@
                             Acciones
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/post/{{ $buscar->id }}/edit">Modificar</a></li>
-                            <li><a class="dropdown-item" href="/post/{{ $buscar->id }}/delete">Eliminar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('posts.edit', $buscar->id) }}">Modificar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('posts.destroy', $buscar->id) }}">Eliminar</a></li>
                         </ul>
                     </th>
                 </tr>
