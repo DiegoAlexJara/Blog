@@ -8,16 +8,23 @@
 
         @csrf
         @method('PUT')
-        
+
         <label for="">Titulo
             <input type="text" name="title" id="title" value="{{ $post->title }}">
+            @error('title')
+                <p>{{ $message }}</p>
+            @enderror
         </label>
+
 
         <br>
         <br>
 
         <label for="">Categoria
             <input type="text" name="category" id="category" value="{{ $post->category }}">
+            @error('category')
+                <p>{{ $message }}</p>
+            @enderror
         </label>
 
         <br>
@@ -25,6 +32,9 @@
 
         <label for="">Contenido
             <textarea name="content" id="content">{{ $post->content }}</textarea>
+            @error('content')
+                <p>{{ $message }}</p>
+            @enderror
         </label>
 
         <br>

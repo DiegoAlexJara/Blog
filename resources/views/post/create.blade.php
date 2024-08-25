@@ -9,22 +9,31 @@
         @csrf
 
         <label for="">Titulo
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" value="{{old('title')}}">
         </label>
+        @error('title')
+        <p>{{$message}}</p>
+        @enderror
         
         <br>
         <br>
         
         <label for="">Categoria
-            <input type="text" name="category" id="category">
+            <input type="text" name="category" id="category" value="{{old('category')}}">
         </label>
-        
+        @error('category')
+        <p>{{$message}}</p>
+        @enderror
+
         <br>
         <br>
         
         <label for="">Contenido
-            <textarea name="content" id="content" ></textarea>
+            <textarea name="content" id="content"  >{{old('content')}}</textarea>
         </label>
+        @error('content')
+        <p>{{$message}}</p>
+        @enderror
         
         <br>
         <br>

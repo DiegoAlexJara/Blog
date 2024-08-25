@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\post;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class PostController extends Controller
         return redirect(route('posts.index'));
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         post::create($request->all());
 
@@ -40,6 +41,11 @@ class PostController extends Controller
     
     public function update(post $post, Request $request)
     {
+        $request->validate([
+            'title' => ['required','min=5', 'max=255'],
+            'category' => 'required',
+            'content' => 'required',
+        ]);
         $post->update   ($request->all());
         return redirect()->route('posts.index');
     }
