@@ -27,18 +27,18 @@ class StorePostRequest extends FormRequest
             'content' => 'required',
         ];
     }
-    public function messages()
-    {
-        return [
-            'title.required'=> 'The :attribute filed is required. (edited)',
-        ];
-    }
-    public function attributes()
-    {
+    // public function messages()
+    // {
+    //     return [
+    //         'title.required'=> 'The :attribute filed is required. (edited)',
+    //     ];
+    // }
+    // public function attributes()
+    // {
 
-        return[
-            'title' => 'name',
-        ];
+    //     return[
+    //         'title' => 'name',
+    //     ];
         
-    }
+    // }
 }
